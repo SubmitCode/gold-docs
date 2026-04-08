@@ -1,0 +1,32 @@
+# docs/taxonomy.yaml
+# Documentation taxonomy — single source of truth for Gold doc structure.
+# Passed to LLM prompts for routing captures and editing sections.
+sections:
+  product:
+    description: "Product-level knowledge visible to stakeholders"
+    children:
+      best-practices:
+        description: "Proven patterns, tips, gotchas for daily work"
+        default_from:
+          - good-to-know
+      known-issues:
+        description: "Known bugs, limitations, and workarounds"
+        default_from:
+          - problem
+  technical-documentation:
+    description: "Technical reference for engineers"
+    children:
+      architecture:
+        description: "System design, key decisions, data flow"
+        default_from:
+          - architecture
+          - decision
+      operational-manual:
+        description: "Runbooks, deployment, monitoring procedures"
+        default_from: []
+      components-and-tools:
+        description: "Libraries, frameworks, services in use"
+        default_from: []
+  team-area:
+    description: "Team processes, onboarding, conventions"
+    children: {}
